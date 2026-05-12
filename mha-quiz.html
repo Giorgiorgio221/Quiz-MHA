@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Hero Academia - Quiz Supremo</title>
+    <link rel="stylesheet" href="mha-quiz.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">⚡ MY HERO ACADEMIA QUIZ ⚡</div>
+            <div class="subtitle">PLUS ULTRA!</div>
+        </div>
+
+        <!-- TELA INICIAL -->
+        <div id="homeScreen" class="screen active home-screen">
+            <div class="welcome-text">
+                Bem-vindo ao Quiz Supremo de My Hero Academia!<br>
+                Teste seus conhecimentos sobre o universo de heróis e vilões.
+            </div>
+            <div class="mode-selection">
+                <button class="mode-button" onclick="startQuiz('classic')">
+                    <div class="mode-title">📚 Modo Clássico</div>
+                    <div class="mode-description">Responda todas as perguntas sem limite de tempo</div>
+                </button>
+                <button class="mode-button" onclick="startQuiz('timed')">
+                    <div class="mode-title">⏱️ Modo Contrarrelógio</div>
+                    <div class="mode-description">20 segundos por pergunta</div>
+                </button>
+                <button class="mode-button" onclick="startQuiz('survival')">
+                    <div class="mode-title">💥 Modo Sobrevivência</div>
+                    <div class="mode-description">Erros lhe eliminam (3 chances)</div>
+                </button>
+                <button class="mode-button" onclick="startQuiz('challenge')">
+                    <div class="mode-title">🏆 Modo Desafio</div>
+                    <div class="mode-description">50 perguntas difíceis</div>
+                </button>
+            </div>
+        </div>
+
+        <!-- TELA DO QUIZ -->
+        <div id="quizScreen" class="screen">
+            <div class="quiz-header">
+                <div class="progress-info">
+                    <div>
+                        <strong>Pergunta <span id="currentQuestion">1</span> de <span id="totalQuestions">0</span></strong>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+                </div>
+                <div class="timer" id="timer"></div>
+                <div class="score-display">
+                    <strong id="scoreText">Pontos: 0</strong>
+                </div>
+            </div>
+
+            <div class="question-container">
+                <div>
+                    <span class="question-category" id="questionCategory"></span>
+                    <span class="difficulty" id="questionDifficulty"></span>
+                </div>
+                <div class="question-text" id="questionText"></div>
+
+                <div class="options-container" id="optionsContainer"></div>
+
+                <div class="explanation" id="explanation">
+                    <div class="explanation-title">Explicação:</div>
+                    <div class="explanation-text" id="explanationText"></div>
+                </div>
+
+                <button class="next-button" id="nextButton" onclick="nextQuestion()">
+                    Próxima Pergunta →
+                </button>
+            </div>
+        </div>
+
+        <!-- TELA DE RESULTADO -->
+        <div id="resultsScreen" class="screen results-screen">
+            <h2>🏁 QUIZ FINALIZADO!</h2>
+            <div class="final-score" id="finalScore">0/0</div>
+            <div class="rank-badge" id="rankBadge"></div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Porcentagem de Acerto</div>
+                    <div class="stat-value" id="percentage">0%</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Tempo Total</div>
+                    <div class="stat-value" id="totalTime">0s</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Respostas Corretas</div>
+                    <div class="stat-value" id="correctCount">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Pontuação Final</div>
+                    <div class="stat-value" id="finalPoints">0</div>
+                </div>
+            </div>
+
+            <div class="feedback-message" id="feedbackMessage"></div>
+
+            <div id="achievementsContainer"></div>
+
+            <div class="leaderboard">
+                <div class="leaderboard-title">🏆 TOP 5 Melhores Resultados</div>
+                <div id="leaderboardContent"></div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-restart" onclick="restart()">
+                    🔄 Jogar Novamente
+                </button>
+                <button class="btn" onclick="changeMode()">
+                    📋 Mudar Modo
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="mha-quiz.js"></script>
+</body>
+</html>
